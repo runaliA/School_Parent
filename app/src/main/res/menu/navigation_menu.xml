@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<group >
+    <item android:id="@+id/account"
+        android:title="My Account"
+        android:icon="@mipmap/ic_person_black_24dp"
+        android:checkable="false" />
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@mipmap/ic_home_black_24dp"
+        android:checkable="false" />
+    <item android:title="Attendance"
+        android:id="@+id/attendance"
+        android:icon="@mipmap/ic_pan_tool_black_24dp" />
+    <item android:title="Home Work"
+        android:id="@+id/homework"
+        android:icon="@mipmap/ic_assignment_black_24dp" />
+    <item android:title="Notice Board"
+        android:id="@+id/noticeboard" />
+    <item android:title="Time Table"
+        android:id="@+id/timetable" />
+    <item android:title="Result"
+        android:id="@+id/result" />
+    <item android:title="Remark"
+        android:id="@+id/remark" />
+    <item android:title="Leave Note"
+        android:id="@+id/leavenote" />
+    <item android:title="Project Demo"
+        android:id="@+id/projectdemo" />
+    <item android:title="Gallery"
+        android:id="@+id/gallery" />
+</group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:title="Share"
+                android:id="@+id/share" />
+            <item android:title="Rate us"
+                android:id="@+id/rate" />
+            <item android:title="Log Out"
+                android:id="@+id/logout" />
+        </menu>
+    </item>
+
+
+</menu>

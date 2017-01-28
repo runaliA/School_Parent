@@ -14,6 +14,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+
         </activity>
     </application>
 
