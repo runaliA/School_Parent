@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Learn_GridView</string>
+    <string-array name="Homescreen_labels" >
+        <item>Attendance</item>
+        <item>Home-Work</item>
+        <item>Notice-Board</item>
+        <item>Time-Table</item>
+        <item>Result</item>
+        <item>Remark</item>
+        <item>Leave-Note</item>
+        <item>Project Demo</item>
+        <item>Gallery</item>
+    </string-array>
+</resources>
