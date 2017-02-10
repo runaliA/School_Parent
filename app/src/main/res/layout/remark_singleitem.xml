@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp">
+
+    <!-- Thumbnail Image -->
+   <ImageView
+       android:id="@+id/messageicon"
+       android:layout_margin="5dp"
+       android:layout_width="24dp"
+       android:layout_height="24dp"
+       android:layout_marginTop="2dp"
+       android:src="@mipmap/ic_assignment_black_24dp"
+       />
+
+    <!-- Movie Title -->
+    <TextView
+
+        android:id="@+id/rtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/messageicon"
+        android:layout_toRightOf="@+id/messageicon"
+        android:text="Remark Title"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/rdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="27 Jan 2016"
+        android:textSize="10sp"
+        android:layout_marginEnd="10dp"
+        android:layout_alignEnd="@+id/rmsg"/>
+
+    <!-- Rating -->
+    <TextView
+        android:id="@+id/rmsg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rtitle"
+        android:layout_marginTop="1dip"
+        android:layout_toRightOf="@+id/messageicon"
+        android:textSize="8sp"
+        android:text="@string/lorem"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/rmsg"
+        android:layout_alignEnd="@+id/rmsg"
+        android:text="Attachment"
+        android:textSize="8sp"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="false"/>
+
+
+</RelativeLayout>

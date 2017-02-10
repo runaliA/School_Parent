@@ -2,6 +2,8 @@
     <string name="app_name">My School App</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu. Pri dico liber omittam ut, no causae similique sea, his id accumsan insolens similique.</string>
+    <string name="attendance_title">Uncheck Students that are Absent</string>
     <string-array name="Homescreen_labels">
         <item>Attendance</item>
         <item>Home-Work</item>
@@ -13,7 +15,100 @@
         <item>Project Demo</item>
         <item>Gallery</item>
     </string-array>
+    <string-array name="remark_list">
+        <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>
+        <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>
+        <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>
+        <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>
+        <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>
+        <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    </string-array>
+
+    <string-array name="dummy_result">
+        <item>Date</item>
+        <item>Day</item>
+        <item>Time</item>
+        <item>Subject</item>
+        <item>02/01/2017</item>
+        <item>Monday</item>
+        <item>10am-1pm</item>
+        <item>English</item>
+        <item>03/01/2017</item>
+        <item>Tuesday</item>
+        <item>9am-12pm</item>
+        <item>Hindi</item>
+        <item>03/01/2017</item>
+        <item>Wednesday</item>
+        <item>1pm-3pm</item>
+        <item>Maths</item>
+        <item>02/01/2017</item>
+        <item>Monday</item>
+        <item>10am-1pm</item>
+        <item>English</item>
+        <item>03/01/2017</item>
+        <item>Tuesday</item>
+        <item>9am-12pm</item>
+        <item>Hindi</item>
+        <item>03/01/2017</item>
+        <item>Wednesday</item>
+        <item>1pm-3pm</item>
+        <item>Maths</item>
+
+    </string-array>
+
+    <string-array name="timetable_header">
+        <item></item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>7-8</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>8-9</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>9-10</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>10-11</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>11-12</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>1-2</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+        <item>Sub</item>
+
+
+
+    </string-array>
 </resources>

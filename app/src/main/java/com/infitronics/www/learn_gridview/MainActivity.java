@@ -1,10 +1,12 @@
 package com.infitronics.www.learn_gridview;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -34,12 +36,14 @@ import java.util.ArrayList;
 
 import static android.R.attr.action;
 import static android.R.attr.label;
+import static android.R.attr.logo;
 import static android.R.id.list;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private boolean viewIsAtHome;
     NavigationView navigationView;
+    ActionBarDrawerToggle mToggle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         //Add Nav Drawer
         DrawerLayout mDrawerlayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
+        mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
         mDrawerlayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
@@ -60,10 +64,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         displayView(R.id.home);
 
+        FragmentManager fm = getFragmentManager();
+        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                if(getFragmentManager().getBackStackEntryCount() == 0) finish();
+            }
+        });
+
+
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
     public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -71,19 +96,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!viewIsAtHome) { //if the current view is not the News fragment
             displayView(R.id.home); //display the News fragment
         } else {
-            moveTaskToBack(true);  //If view is in News fragment, exit application
+            //moveTaskToBack(true);  //If view is in Home fragment, exit application
+
+            this.doubleBackToExitPressedOnce = true;
+           // Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         }
     }
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        return mToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
-    }*/
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         displayView(item.getItemId());
+        Log.d("tag", "onNavigationItemSelected: "+item.getItemId());
         return true;
     }
 
@@ -103,9 +134,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 title  = "HomeWork";
                 viewIsAtHome = false;
                 break;
+            case R.id.noticeboard:
+                fragment = new Notice_Fragment();
+                title  = "Notice Board";
+                viewIsAtHome = false;
+                break;
+            case R.id.timetable:
+                fragment = new Timetable_Fragment();
+                title  = "Time Table";
+                viewIsAtHome = false;
+                break;
+            case R.id.result:
+                fragment = new Result_Fragment();
+                title  = "Result";
+                viewIsAtHome = false;
+                break;
+            case R.id.remark:
+                fragment = new Remark_Fragment();
+                title  = "Remark";
+                viewIsAtHome = false;
+                break;
             case R.id.attendance:
                 fragment = new Attendance_Fragment();
                 title  = "Attendance";
+                viewIsAtHome = false;
+                break;
+            case R.id.projectdemo:
+                fragment = new Projectdemo_Fragment();
+                title  = "Project Demo";
+                viewIsAtHome = false;
+                break;
+            case R.id.gallery:
+                fragment = new Gallery_Fragment();
+                title  = "Gallery";
+                viewIsAtHome = false;
+                break;
+            case R.id.leavenote:
+                fragment = new Leavenote_Fragment();
+                title  = "Leave Note";
                 viewIsAtHome = false;
                 break;
 
@@ -119,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // set the toolbar title
         if (getSupportActionBar() != null) {
-            assert getSupportActionBar() != null;
+            if (getSupportActionBar() == null) throw new AssertionError();
             getSupportActionBar().setTitle(title);
         }
 
