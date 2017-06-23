@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/leavenote_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="1dp"
+        card_view:cardElevation="2dp"
+        card_view:contentPadding="5dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardPreventCornerOverlap="false">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp">
+
+            <!-- Thumbnail Image -->
+            <ImageView
+                android:id="@+id/messageicon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_receipt_black_24dp" />
+
+            <!--Title-->
+            <TextView
+                android:id="@+id/nt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/messageicon"
+                android:text="Notice Title"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <!--Date-->
+            <TextView
+                android:id="@+id/nt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="27 Jan 2016"
+                android:textSize="14sp"
+                android:layout_marginEnd="10dp"
+                android:layout_alignEnd="@+id/nt_description"
+                android:layout_marginRight="10dp"
+                android:layout_alignRight="@+id/nt_description" />
+
+            <!--Description-->
+            <TextView
+                android:id="@+id/nt_description"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nt_title"
+                android:layout_marginTop="1dip"
+                android:layout_toRightOf="@+id/messageicon"
+                android:textSize="14sp"
+                android:text="From Date :"/>
+
+           <!-- &lt;!&ndash;Attachment&ndash;&gt;
+            <Button
+                android:id="@+id/btn_nt_attachment"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:elevation="4dp"
+                android:drawableLeft="@drawable/ic_attachment"
+                android:layout_below="@+id/nt_description"
+                android:layout_alignEnd="@+id/nt_description"
+                android:text="Attachment"
+                android:textSize="14sp"
+                android:textAllCaps="true"/>-->
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

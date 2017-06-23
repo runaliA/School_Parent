@@ -18,5 +18,9 @@
         android:verticalSpacing="1dp"
         android:stretchMode="columnWidth"
         android:background="#e5e5e5"/>
+    <!--<com.greasemonk.timetable.TimeTable
+        android:id="@+id/time_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>-->
 
 </RelativeLayout>

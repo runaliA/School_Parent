@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">My School App</string>
+    <string name="app_name">Parent App</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="lorem">Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu. Pri dico liber omittam ut, no causae similique sea, his id accumsan insolens similique.</string>
     <string name="attendance_title">Uncheck Students that are Absent</string>
+    <string name="Leave_Duration">Leave Duration</string>
     <string-array name="Homescreen_labels">
         <item>Attendance</item>
         <item>Home-Work</item>
@@ -108,7 +109,24 @@
         <item>Sub</item>
         <item>Sub</item>
 
-
-
     </string-array>
+
+    <string-array name="months">
+        <item>All Months</item>
+        <item>January</item>
+        <item>Febuary</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
