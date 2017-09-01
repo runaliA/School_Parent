@@ -10,16 +10,18 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="1dp"
-        card_view:cardElevation="2dp"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="5dp"
+
         card_view:contentPadding="5dp"
+        android:background="#c5eaf4"
         card_view:cardUseCompatPadding="true"
         card_view:cardPreventCornerOverlap="false">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="6dp">
+            >
 
             <!-- Thumbnail Image -->
             <ImageView
@@ -63,7 +65,7 @@
                 android:text="@string/lorem"/>
 
             <!--Attachment-->
-            <Button
+          <!--  <Button
                 android:id="@+id/btn_rm_attachment"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -73,7 +75,7 @@
                 android:layout_alignEnd="@+id/rm_description"
                 android:text="Attachment"
                 android:textSize="14sp"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true"/>-->
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

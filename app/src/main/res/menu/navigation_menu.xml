@@ -2,49 +2,56 @@
 <menu xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<group >
-    <item android:id="@+id/account"
-        android:title="My Account"
-        android:icon="@mipmap/ic_person_black_24dp"
-        android:checkable="false" />
-    <item android:id="@+id/home"
-        android:title="Home"
-        android:icon="@mipmap/ic_home_black_24dp"
-        android:checkable="false" />
-    <item android:title="Attendance"
-        android:id="@+id/attendance"
-        android:icon="@mipmap/ic_pan_tool_black_24dp" />
-    <item android:title="Home Work"
-        android:id="@+id/homework"
-        android:icon="@drawable/ic_local_library_black_24dp" />
-    <item android:title="Notice Board"
-        android:id="@+id/noticeboard"
-        android:icon="@drawable/ic_speaker_notes_black_24dp" />
-    <item android:title="Time Table"
+    <group>
+        <item
+            android:id="@+id/account"
+            android:checkable="false"
+            android:icon="@mipmap/ic_person_black_24dp"
+            android:title="My Account" />
+        <item
+            android:id="@+id/home"
+            android:checkable="false"
+            android:icon="@mipmap/ic_home_black_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/attendance"
+            android:icon="@mipmap/ic_pan_tool_black_24dp"
+            android:title="Attendance" />
+        <item
+            android:id="@+id/homework"
+            android:icon="@drawable/ic_local_library_black_24dp"
+            android:title="Home Work" />
+        <item
+            android:id="@+id/noticeboard"
+            android:icon="@drawable/ic_speaker_notes_black_24dp"
+            android:title="Notice Board" />
+        <!--<item android:title="Time Table"
         android:id="@+id/timetable"
-        android:icon="@drawable/ic_date_range_black_24dp" />
-    <item android:title="Result"
+        android:icon="@drawable/ic_date_range_black_24dp" />-->
+        <!--  <item android:title="Result"
         android:id="@+id/result"
-        android:icon="@drawable/ic_timeline_black_24dp" />
-    <item android:title="Remark"
-        android:id="@+id/remark"
-        android:icon="@drawable/ic_bookmark_black_24dp" />
-    <item android:title="Leave Note"
-        android:id="@+id/leavenote"
-        android:icon="@drawable/ic_receipt_black_24dp" />
-    <item android:title="Project Demo"
+        android:icon="@drawable/ic_timeline_black_24dp" />-->
+        <item
+            android:id="@+id/remark"
+            android:icon="@drawable/ic_bookmark_black_24dp"
+            android:title="Remark" />
+        <item
+            android:id="@+id/leavenote"
+            android:icon="@drawable/ic_receipt_black_24dp"
+            android:title="Leave Note" />
+        <!-- <item android:title="Project Demo"
         android:id="@+id/projectdemo"
         android:icon="@drawable/ic_filter_vintage_black_24dp" />
     <item android:title="Gallery"
         android:id="@+id/gallery"
-        android:icon="@drawable/ic_camera_roll_black_24dp" />
-</group>
+        android:icon="@drawable/ic_camera_roll_black_24dp" />-->
+    </group>
 
     <item android:title="Communicate">
         <menu>
-            <item android:title="Share"
+           <!-- <item android:title="Share"
                 android:id="@+id/share"
-                android:icon="@drawable/ic_share_black_24dp" />
+                android:icon="@drawable/ic_share_black_24dp" />-->
             <item android:title="Rate us"
                 android:id="@+id/rate"
                 android:icon="@drawable/ic_rate_review_black_24dp" />

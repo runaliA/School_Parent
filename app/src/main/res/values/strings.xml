@@ -9,12 +9,12 @@
         <item>Attendance</item>
         <item>Home-Work</item>
         <item>Notice-Board</item>
-        <item>Time-Table</item>
-        <item>Result</item>
+        <!--<item>Time-Table</item>-->
+        <!--<item>Result</item>-->
         <item>Remark</item>
         <item>Leave-Note</item>
-        <item>Project Demo</item>
-        <item>Gallery</item>
+        <!--<item>Project Demo</item>-->
+        <!--<item>Gallery</item>-->
     </string-array>
     <string-array name="remark_list">
         <item>Lorem ipsum dolor sit amet, no augue efficiendi eos. Ei qui quis iusto causae, amet oportere accusamus in nam. Ferri augue utroque at nam, in quis dicunt liberavisse his, movet animal eripuit qui cu.</item>

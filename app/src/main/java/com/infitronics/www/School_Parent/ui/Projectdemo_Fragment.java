@@ -27,7 +27,7 @@ public class Projectdemo_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myview= inflater.inflate(R.layout.fragment_projectdemo,container,false);
         webView= (WebView) myview.findViewById(R.id.web_projectdemo);
-        webView.loadUrl("https://in.yahoo.com/");
+        webView.loadUrl("https://www.youtube.com/");
         return myview;
     }
 }

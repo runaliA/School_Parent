@@ -50,38 +50,47 @@ public class Notice_Adapter extends RecyclerView.Adapter<Notice_Adapter.Notice_V
         holder.ntTitle.setText(dataList.get(position).getNt_Title());
         holder.ntDescription.setText(dataList.get(position).getNt_Description());
         holder.ntDate.setText(dataList.get(position).getNt_NoticeDate());
-        holder.noticeAttached.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        final String str=dataList.get(position).getNt_Filepath();
+        Log.e("LENGTH_SHORT ",str.length()+"****");
+if(str.length()>0)
+{
+    holder.noticeAttached.setVisibility(View.VISIBLE);
 
-                String str=dataList.get(position).getNt_Filepath();
-                Toast.makeText(context, "Homework "+str, Toast.LENGTH_SHORT).show();
-                try {
-                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+    holder.noticeAttached.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
-                    StrictMode.setThreadPolicy(policy);
 
-                    URL url = new URL("http://"+str);
-                    Bitmap bmp = null;
+            Toast.makeText(context, "Homework "+str, Toast.LENGTH_SHORT).show();
+            try {
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
-                    bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-                    /****************Convert this bitmap tp imageview in dialog box
-                     *
-                     * first dailog box  then add image view to diaolg box *****************************/
-                    Dialog dialog = new Dialog(context);
-                    dialog.setContentView(R.layout.fragment_homework_image);
-                    dialog.setTitle("Notice");
-                    dialog.setCancelable(true);
-                    ImageView img = (ImageView) dialog.findViewById(R.id.imgHomework);
-                    img.setImageBitmap(bmp);
-                    dialog.show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e("EXCEPTION Imge" ,e.toString());
-                }
+                StrictMode.setThreadPolicy(policy);
 
+                URL url = new URL(str);
+                Bitmap bmp = null;
+
+                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                /****************Convert this bitmap tp imageview in dialog box
+                 *
+                 * first dailog box  then add image view to diaolg box *****************************/
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.fragment_homework_image);
+                dialog.setTitle("Notice");
+                dialog.setCancelable(true);
+                ImageView img = (ImageView) dialog.findViewById(R.id.imgHomework);
+                img.setImageBitmap(bmp);
+                dialog.show();
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+                Log.e("EXCEPTION Imge" ,e.toString());
             }
-        });
+
+        }
+    });
+}
+
             }
 
     @Override

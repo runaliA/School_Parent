@@ -3,6 +3,7 @@ package com.infitronics.www.School_Parent.ui;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -59,6 +60,7 @@ import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -79,6 +81,12 @@ public class Leavenote_Fragment extends Fragment {
         myview= inflater.inflate(R.layout.fragment_leavenote,container,false);
 
         add_note= (FloatingActionButton) myview.findViewById(R.id.floatbtnAddLeave);
+
+
+        SharedPreferences prefs = getActivity().getSharedPreferences("UserName", MODE_PRIVATE);
+        String username = prefs.getString("UserN", "");
+        String  str1=prefs.getString("StudentID","");
+
         add_note.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +106,7 @@ public class Leavenote_Fragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
 
         ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
-        Call<Get_LeaveList> call = apiservice.getLeaveList(1087,2);
+        Call<Get_LeaveList> call = apiservice.getLeaveList(Integer.parseInt(str1),2);
 
         mProgressDialog = DialogUtils.showProgressDialog(getActivity(),"Loading Data...");
         call.enqueue(new Callback<Get_LeaveList>() {
@@ -114,7 +122,7 @@ public class Leavenote_Fragment extends Fragment {
                     {
                         Log.e("DATA  ",data.get(i).toString());
                     }
-                    mAdapter = new Leave_Adapter(data, R.layout.list_item_notice, getActivity());
+                    mAdapter = new Leave_Adapter(data, R.layout.list_item_leavenote, getActivity());
                     mRecyclerView.setAdapter(mAdapter);
                 }
                 else

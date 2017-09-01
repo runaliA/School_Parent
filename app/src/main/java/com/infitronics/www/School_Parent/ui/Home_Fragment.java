@@ -28,9 +28,7 @@ import com.infitronics.www.School_Parent.utils.BackHandledFragment;
 
 import java.util.ArrayList;
 
-/**
- * Created by Shashank on 28-01-2017.
- */
+
 
 public class Home_Fragment extends Fragment implements AdapterView.OnItemClickListener {
     View myview;
@@ -79,16 +77,16 @@ public class Home_Fragment extends Fragment implements AdapterView.OnItemClickLi
                 title  = "Notice Board";
                 viewIsAtHome = false;
                 break;
-            case R.drawable.timetable:
-                fragment = new Timetable_Fragment();
-                title  = "Time Table";
-                viewIsAtHome = false;
-                break;
-            case R.drawable.result:
-                fragment = new Result_Fragment();
-                title  = "Result";
-                viewIsAtHome = false;
-                break;
+//            case R.drawable.timetable:
+//                fragment = new Timetable_Fragment();
+//                title  = "Time Table";
+//                viewIsAtHome = false;
+//                break;
+//            case R.drawable.result:
+//                fragment = new Result_Fragment();
+//                title  = "Result";
+//                viewIsAtHome = true;
+//                break;
             case R.drawable.remark:
                 fragment = new Remark_Fragment();
                 title  = "Remark";
@@ -99,16 +97,16 @@ public class Home_Fragment extends Fragment implements AdapterView.OnItemClickLi
                 title  = "Attendance";
                 viewIsAtHome = false;
                 break;
-            case R.drawable.rewards:
-                fragment = new Projectdemo_Fragment();
-                title  = "Project Demo";
-                viewIsAtHome = false;
-                break;
-            case R.drawable.gallery:
-                fragment = new Gallery_Fragment();
-                title  = "Gallery";
-                viewIsAtHome = false;
-                break;
+//            case R.drawable.rewards:
+//                fragment = new Projectdemo_Fragment();
+//                title  = "Project Demo";
+//                viewIsAtHome = true;
+//                break;
+//            case R.drawable.gallery:
+//                fragment = new Gallery_Fragment();
+//                title  = "Gallery";
+//                viewIsAtHome = false;
+//                break;
             case R.drawable.leavenote:
                 fragment = new Leavenote_Fragment();
                 title  = "Leave Note";
@@ -131,15 +129,13 @@ public class Home_Fragment extends Fragment implements AdapterView.OnItemClickLi
 
     }
 
-
-
-
     class Homeicon
     {
         int imageId;
         String label;
 
-        Homeicon(int imageId, String label) {
+        Homeicon(int imageId, String label)
+        {
             this.imageId = imageId;
             this.label = label;
         }
@@ -167,9 +163,10 @@ public class Home_Fragment extends Fragment implements AdapterView.OnItemClickLi
             list = new ArrayList<>();
             Resources res = context.getResources();
             String[] Labels = res.getStringArray(R.array.Homescreen_labels);
-            int[] Icons = {R.drawable.attendance, R.drawable.homework, R.drawable.noticeboard, R.drawable.timetable, R.drawable.result, R.drawable.remark, R.drawable.leavenote, R.drawable.rewards, R.drawable.gallery};
+            int[] Icons = {R.drawable.attendance, R.drawable.homework, R.drawable.noticeboard, R.drawable.remark, R.drawable.leavenote};
+//            int[] Icons = {R.drawable.attendance, R.drawable.homework, R.drawable.noticeboard, R.drawable.timetable, R.drawable.result, R.drawable.remark, R.drawable.leavenote, R.drawable.rewards, R.drawable.gallery};
 
-            for (int i = 0; i < 9; i++) {
+            for (int i = 0; i < 5 ; i++) {
                 Homeicon myhomeicons = new Homeicon(Icons[i], Labels[i]);
                 list.add(myhomeicons);
             }
@@ -200,6 +197,7 @@ public class Home_Fragment extends Fragment implements AdapterView.OnItemClickLi
                 row = inflater.inflate(R.layout.single_item, viewGroup, false);
                 holder = new ViewHolder(row);
                 row.setTag(holder);
+
             } else {
                 holder = (ViewHolder) row.getTag();
             }
@@ -210,6 +208,9 @@ public class Home_Fragment extends Fragment implements AdapterView.OnItemClickLi
             return row;
         }
     }
-
-
 }
+
+
+
+
+

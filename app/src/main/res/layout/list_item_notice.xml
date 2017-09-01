@@ -10,9 +10,11 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="1dp"
-        card_view:cardElevation="2dp"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="5dp"
+
         card_view:contentPadding="5dp"
+        android:background="#c5eaf4"
         card_view:cardUseCompatPadding="true"
         card_view:cardPreventCornerOverlap="false">
 
@@ -65,13 +67,14 @@
 <!--Attachment-->
     <Button
         android:id="@+id/btn_nt_attachment"
-        android:layout_width="wrap_content"
+        android:layout_width="55dp"
         android:layout_height="40dp"
         android:elevation="4dp"
+        android:visibility="gone"
         android:drawableLeft="@drawable/ic_attachment"
         android:layout_below="@+id/nt_description"
         android:layout_alignEnd="@+id/nt_description"
-        android:text="Attachment"
+
         android:textSize="14sp"
         android:textAllCaps="true"
         android:layout_alignRight="@+id/nt_description" />

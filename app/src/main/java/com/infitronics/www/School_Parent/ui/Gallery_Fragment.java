@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -42,15 +43,20 @@ public class Gallery_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         myview= inflater.inflate(R.layout.fragment_gallery,container,false);
-
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-
         mRecyclerView = (RecyclerView) myview.findViewById(R.id.recycler_gallery);
-        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mRecyclerView.setHasFixedSize(true);
+
+//        Gallery_Adapter adapter = new Gallery_Adapter(this, allSampleData);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+
+        /*        WESERVICE CALL   */
+
 
         ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
         Call<Get_Gallery> call =apiservice.getGallery();
         mProgressDialog = DialogUtils.showProgressDialog(getActivity(),"Loading Data...");
+
 
         call.enqueue(new Callback<Get_Gallery>() {
             @Override
@@ -62,21 +68,29 @@ public class Gallery_Fragment extends Fragment {
                     mGalleryAdapter = new Gallery_Adapter(mygallery ,R.layout.list_item_gallery, getActivity());
                     mRecyclerView.setAdapter(mGalleryAdapter);
                     Log.e(TAG, "Number of Data received: " + mygallery);
-                }
+            }
+
                 else
-                {
-                    Log.d(TAG, "random error: "+response.errorBody());
+                    {
+                        Log.d(TAG, "random error: "+response.errorBody());
+                    }
+
                 }
 
-            }
+                @Override
+                public void onFailure(Call<Get_Gallery> call, Throwable t) {
+                    Log.e(TAG, t.toString());
+                    if (mProgressDialog.isShowing())
+                        mProgressDialog.dismiss();
+                }
 
-            @Override
-            public void onFailure(Call<Get_Gallery> call, Throwable t) {
-                Log.e(TAG, t.toString());
-                if (mProgressDialog.isShowing())
-                    mProgressDialog.dismiss();
-            }
-        });
+
+
+//                    mRecyclerView.setAdapter(adapter);
+
+
+
+    });
         return myview;
-    }
+}
 }

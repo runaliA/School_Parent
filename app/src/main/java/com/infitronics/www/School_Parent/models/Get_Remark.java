@@ -46,6 +46,15 @@ public class Get_Remark  {
 
     public class Data
     {
+        public Data() {
+        }
+
+        public Data(String title,String student, String description) {
+            Student = student;
+            Description = description;
+            Title = title;
+        }
+
         private String Student;
 
         private String Description;

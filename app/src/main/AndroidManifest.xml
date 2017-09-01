@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.infitronics.www.School_Parent">
+    package="com.infitronics.www.School_Parent"
+    android:versionCode="2"
+    android:versionName="1.1">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/parent_appicon"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <!-- Parent activity meta-data to support 4.0 and lower -->
 
         </activity>
+
+       <activity android:name=".ui.Splash" >
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+
+               <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>
+        </activity>
+        <activity android:name=".ui.Login"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

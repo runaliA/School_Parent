@@ -36,9 +36,10 @@ public class Leave_Adapter extends RecyclerView.Adapter<Leave_Adapter.Leavenote_
     }
 
     @Override
-    public void onBindViewHolder(Leavenote_ViewHolder holder, int position) {
-        holder.ntTitle.setText(dataList.get(position).getStudentName());
-        holder.ntDescription.setText(dataList.get(position).getLv_Description());
+    public void onBindViewHolder(Leavenote_ViewHolder holder, int position)
+    {
+        holder.ntTitle.setText(dataList.get(position).getLv_Description());
+        holder.ntDescription.setText(holder.ntDescription.getText()+" "+dataList.get(position).getStartDate());
         holder.ntDate.setText(dataList.get(position).getSubmittedDate());
     }
 

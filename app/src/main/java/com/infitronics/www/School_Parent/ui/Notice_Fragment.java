@@ -1,6 +1,10 @@
 package com.infitronics.www.School_Parent.ui;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.google.gson.reflect.TypeToken;
 import com.infitronics.www.School_Parent.R;
 import com.infitronics.www.School_Parent.adapter.Notice_Adapter;
@@ -46,35 +52,60 @@ public class Notice_Fragment extends Fragment {
 
         mRecyclerView = (RecyclerView) myview.findViewById(R.id.recycler_notice);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+//        mRecyclerView.setAdapter(mAdapter);
 
-        ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
-        Call<Get_Notice> call = apiservice.getNotice();
+        boolean flaginternet = false;
+        ConnectivityManager connectivity = (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity != null) {
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                        flaginternet = true;
+                        break;
+                    }
 
-        mProgressDialog = DialogUtils.showProgressDialog(getActivity(),"Loading Data...");
-        call.enqueue(new Callback<Get_Notice>() {
-            @Override
-            public void onResponse(Call<Get_Notice> call, Response<Get_Notice> response) {
-                if (mProgressDialog.isShowing())
+        }
+
+        if (flaginternet) {
+            ApiInterface apiservice = ApiClient.getClient().create(ApiInterface.class);
+            Call<Get_Notice> call = apiservice.getNotice();
+
+            mProgressDialog = DialogUtils.showProgressDialog(getActivity(), "Loading Data...");
+            call.enqueue(new Callback<Get_Notice>() {
+                @Override
+                public void onResponse(Call<Get_Notice> call, Response<Get_Notice> response) {
+                    if (mProgressDialog.isShowing())
+                        mProgressDialog.dismiss();
+                    if (response.isSuccessful()) {
+                        data = response.body().getData();
+                        for (int i = 0; i < data.size(); i++) {
+                            Log.e("Notice Data ", data.get(i).toString());
+                        }
+                        mAdapter = new Notice_Adapter(data, R.layout.list_item_notice, getActivity());
+                        mRecyclerView.setAdapter(mAdapter);
+                    } else {
+                        Log.d(TAG, "random error: ");
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<Get_Notice> call, Throwable t) {
+                    Log.e(TAG, t.toString());
                     mProgressDialog.dismiss();
-                if (response.isSuccessful()) {
-                    data = response.body().getData();
-                    mAdapter = new Notice_Adapter(data, R.layout.list_item_notice, getActivity());
-                    mRecyclerView.setAdapter(mAdapter);
+                    Toast.makeText(getActivity(), "Unable to fetch Response ", Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-                Log.d(TAG, "random error: ");
-                }
+            });
+        }
+        else
+        {
+            Toast.makeText(getActivity(), "Plz check Internet Connectivity", Toast.LENGTH_SHORT).show();
+            Intent i=new Intent(getActivity(),Login.class);
+            getActivity().finish();
 
-            }
 
-            @Override
-            public void onFailure(Call<Get_Notice> call, Throwable t) {
-                Log.e(TAG, t.toString());
-            }
-        });
-
+        }
         return myview;
     }
 }

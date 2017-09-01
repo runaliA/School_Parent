@@ -1,6 +1,9 @@
 package com.infitronics.www.School_Parent.api;
 
 import com.infitronics.www.School_Parent.models.Add_Leave;
+import com.infitronics.www.School_Parent.models.GetStudentDetails;
+import com.infitronics.www.School_Parent.models.GetTimeTable;
+import com.infitronics.www.School_Parent.models.Get_Attendance;
 import com.infitronics.www.School_Parent.models.Get_Gallery;
 import com.infitronics.www.School_Parent.models.Get_Homework;
 import com.infitronics.www.School_Parent.models.Get_LeaveList;
@@ -15,7 +18,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
+
 
 /**
  * Created by shashank on 27/2/17.
@@ -44,4 +47,17 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("AddLeave")
     Call<Add_Leave> insertLeave(@Field("StartDate") String startDate,@Field("EndDate") String endDate,@Field("Student") int student , @Field("Reason") String reason,@Field("RID") int rid);
+
+    @FormUrlEncoded
+    @POST("ValidateUser_Student")
+    Call<GetStudentDetails> getStuDetails(@Field("UserId") String userID, @Field("Password") String pass);
+
+    @FormUrlEncoded
+    @POST("GetAttendance")
+    Call<Get_Attendance> getAttendance(@Field("MonthName") String month, @Field("Student") int Studentid);
+
+    @FormUrlEncoded
+    @POST("GetTimeTable")
+    Call<GetTimeTable> getTimetable(@Field("ClassId") int classID);
+
 }

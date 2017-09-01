@@ -86,7 +86,7 @@ public class Homework_Adapter extends RecyclerView.Adapter<Homework_Adapter.Home
                public void onClick(View v) {
 
                    String str=dataList.get(position).getFilePath();
-                   Toast.makeText(context, "Homework "+str, Toast.LENGTH_SHORT).show();
+//                   Toast.makeText(context, "Homework "+str, Toast.LENGTH_SHORT).show();
                    try {
                        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 

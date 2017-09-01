@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8090a4ae">
-
+    >
+    <!--android:background="#f2cece"-->
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
